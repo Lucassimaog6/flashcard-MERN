@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Deck from './Deck';
+import './global.css';
 const router = createBrowserRouter([
 	{
 		path: '/',

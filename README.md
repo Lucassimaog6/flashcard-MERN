@@ -4,7 +4,7 @@ Um site usando a Stack MERN (MongoDB, Express, React e NodeJS).
 
 ## Screenshots
 
-![Todo Screenshot](Screenshot.png)
+![Todo Screenshot](Example.png)
 
 ## Rodando localmente
 
@@ -32,7 +32,7 @@ Instale as dependências
   npm i
 ```
 
-Inicie o servidor backend (Não e esqueça de definir o .env com as informações do seu própio banco) 
+Inicie o servidor backend (Não e esqueça de definir o .env com as informações do seu própio banco)
 
 ```bash
   npm run dev

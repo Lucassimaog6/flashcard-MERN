@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import createDeck from './api/createDeck';
-import { deleteDeck } from './api/deleteDeck';
+import deleteDeck from './api/deleteDeck';
 import getDecks from './api/getDecks';
 
-type Deck = {
+export type DeckType = {
 	title: string;
+	cards: string[];
 	_id: string;
 };
 
 function App() {
-	const [decks, setDecks] = useState<Deck[]>([]);
+	const [decks, setDecks] = useState<DeckType[]>([]);
 	const [deckTitle, setDeckTitle] = useState('');
 
 	useEffect(() => {

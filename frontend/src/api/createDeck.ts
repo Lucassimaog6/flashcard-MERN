@@ -1,4 +1,4 @@
-export default async function createDeck(deckTitle: string) {
+export default async (deckTitle: string) => {
 	const res = await fetch('http://localhost:3000/decks', {
 		method: 'POST',
 		headers: {
@@ -9,4 +9,4 @@ export default async function createDeck(deckTitle: string) {
 		}),
 	});
 	return res.json();
-}
+};

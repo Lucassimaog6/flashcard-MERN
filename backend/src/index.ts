@@ -11,26 +11,19 @@ app.use(
 	})
 );
 app.use(express.json());
+import getDecks from './controllers/getDecks';
+import createDeck from './controllers/createDeck';
+import deleteDeck from './controllers/deleteDeck';
+import createCard from './controllers/createCard';
+import getSingleDeck from './controllers/getSingleDeck';
+import deleteCard from './controllers/deleteCard';
 
-import Deck from './models/Deck';
+app.get('/decks', getDecks);
+app.post('/decks', createDeck);
+app.delete('/decks/:deck_id', deleteDeck);
 
-app.get('/decks', async (req: Request, res: Response) => {
-	const decks = await Deck.find();
-	res.json(decks);
-});
-
-app.post('/decks', async (req: Request, res: Response) => {
-	const body = req.body;
-	const newDeck = new Deck({
-		title: body.title,
-	});
-	res.json(await newDeck.save());
-});
-
-app.delete('/decks/:deck_id', async (req: Request, res: Response) => {
-	const deck_id = req.params.deck_id;
-	const deletedDeck = await Deck.findByIdAndDelete(deck_id);
-	res.json(deletedDeck);
-});
+app.get('/decks/:deck_id', getSingleDeck);
+app.post('/decks/:deck_id/cards', createCard);
+app.delete('/decks/:deck_id/cards/:index', deleteCard);
 
 const db = mongoose.connect(process.env.MONGO_URI!).then(() => app.listen(3000));
